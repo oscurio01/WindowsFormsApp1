@@ -33,7 +33,28 @@ namespace WindowsFormsApp1
 
         private void ButSubmit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Funciono");
+            string text = $@"Title: {TxtTitle.Text}
+location: {comboLocation.Text}
+type: {ComboType.Text}
+criticity: {comboCriticity.Text}
+description: 
+[{TxtDescription.Text}]
+";
+
+            if (checkBoxProd.Checked)
+                text += checkBoxProd.Text + "\n";
+            if (checkBoxPreprod.Checked)
+                text += checkBoxPreprod.Text + "\n";
+            if (checkBoxDemo.Checked)
+                text += checkBoxDemo.Text + "\n";
+
+            text += $@"{dateTimePicker.Text}
+Duration {DurationInHours.Value}
+Status: {comboStatus.Text}
+Percent complete: {comboPercent.Text}";
+
+            MessageBox.Show(text);
+                
         }
     }
 }
